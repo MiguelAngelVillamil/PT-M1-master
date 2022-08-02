@@ -2,13 +2,8 @@
 
 function BinarioADecimal(num) {
   
-  let binario = num.split("").reverse().join("");
-  let decimal = 0;
-
-  for(let c = 0 ; c < binario.length ; c++){
-    decimal += parseInt(binario[c] * (2**c));
-  }
-
+  let decimal = parseInt(num, 2);
+  
   return decimal;
 }
 

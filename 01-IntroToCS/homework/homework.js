@@ -1,17 +1,11 @@
 "use strict";
 
 function BinarioADecimal(num) {
-  
-  let decimal = parseInt(num, 2);
-  
-  return decimal;
+  return parseInt(num, 2);
 }
 
 function DecimalABinario(num) {
-  
-  let binario = num.toString(2);
-  
-  return binario;
+  return num.toString(2);
 }
 
 module.exports = {

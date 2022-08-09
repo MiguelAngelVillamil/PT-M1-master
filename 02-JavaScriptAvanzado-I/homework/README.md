@@ -33,7 +33,7 @@ console.log(x); // 1.
 console.log(bar); // undefined.
 console.log(baz); // baz is not defined.
 foo();
-function foo() { console.log('Hola!'); }
+function foo() { console.log('Hola!'); } // Hola!"
 var bar = 1;
 baz = 2;
 ```
@@ -100,7 +100,7 @@ parseInt("09") // 9.
 
 ¿Cuál es el output o salida en consola luego de ejecutar este código? Explicar por qué:
 
-> Cuando intentamos loguear a JS entiende el espacio definido en memoria bajo el nombre b pero no puede leer qué tiene dentro. En cambio cuando invoca la función foo continúa leyendo la función test hasta encontrar el retorno y devolverlo.
+> Cuando intentamos loguear JS entiende el espacio definido en memoria bajo el nombre a pero no puede leer qué tiene dentro porque aún no le fue asignado un valor. En cambio cuando invoca la función test continúa leyendo la función foo hasta encontrar el retorno y devolverlo.
 
 ```javascript
 function test() {
@@ -141,7 +141,7 @@ getFood(false); // undefined.
 
 > El primer console log es debido a que nuestro getter buscará primero el fullname en su entorno de ejecución.
 
-> El segundo console log nos dará un error porque la función test está mal definida, estamos intentado invocarla fuera de un entorno donde exista algo llamado fullname, entonces busca en el goblal donde claramente no hay una función definida bajo ese nombre.
+> El segundo console log nos dará un error porque la función test está mal definida, estamos intentado invocarla fuera de un entorno donde exista algo llamado fullname, entonces busca en el objeto goblal donde claramente no hay una función definida bajo ese nombre.
 
 ```javascript
 var fullname = 'Juan Perez';
@@ -166,7 +166,7 @@ console.log(test()); // undefined.
 
 Considerando el siguiente código, ¿Cuál sería el orden en el que se muestra por consola? ¿Por qué?
 
-> Primero lee la primera líned donde se encuentra el console log y lo ejectuta, luego va a la segunda línea, ve el setTimeout y lo pone en la pila de ejecución, luego pasa lo mismo con la línea 3, luego en la línea 4 lee el console log y lo ejectuta, después espera los 0 segundos indicados en la línea 3 y ejecuta el console log, y luego de 3 segundos se repite el proceso con la línea 2. 
+> Primero lee la primera líned donde se encuentra el console log y lo ejectuta, luego va a la segunda línea, ve el setTimeout y lo pone en la cola de ejecución, luego pasa lo mismo con la línea 3, luego en la línea 4 lee el console log y lo ejectuta, después espera los 0 segundos indicados en la línea 3 y ejecuta el console log, y luego de 3 segundos se repite el proceso con la línea 2. 
 
 ```javascript
 function printing() {

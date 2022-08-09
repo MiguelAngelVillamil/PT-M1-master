@@ -55,7 +55,7 @@ function cacheFunction(cb) {
 
   function resultadoCache(arg){
 
-    !objetoCache.hasOwnProperty(arg) ? objetoCache[arg] = cb(arg) : null
+    !objetoCache.hasOwnProperty(arg) ? objetoCache[arg] = cb(arg) : null;
 
     return objetoCache[arg];
   }
@@ -89,6 +89,7 @@ function getNombre() {
 
 let getNombreInstructor = getNombre.bind(instructor);
 let getNombreAlumno = getNombre.bind(alumno);
+
 /*
   Ejercicio 4
   

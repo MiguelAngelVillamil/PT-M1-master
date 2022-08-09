@@ -53,14 +53,12 @@ function cacheFunction(cb) {
 
   let objetoCache = {}
 
-  function resultadoCache(arg){
+  return function resultadoCache(arg){
 
     !objetoCache.hasOwnProperty(arg) ? objetoCache[arg] = cb(arg) : null;
 
     return objetoCache[arg];
   }
-
-  return resultadoCache;
 }
 
 // Bind

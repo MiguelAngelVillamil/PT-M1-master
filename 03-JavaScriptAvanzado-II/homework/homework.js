@@ -22,12 +22,7 @@ function counter() {
 
   let c = 0;
 
-  let contador = () => {
-    c++;
-    return c;
-  }
-
-  return contador;
+  return () => ++c;
 }
 
 function cacheFunction(cb) {
@@ -53,7 +48,7 @@ function cacheFunction(cb) {
 
   let objetoCache = {}
 
-  return function resultadoCache(arg){
+  return (arg) => {
 
     !objetoCache.hasOwnProperty(arg) ? objetoCache[arg] = cb(arg) : null;
 

@@ -3,6 +3,7 @@
 // Closures
 
 function counter() {
+  
   /*
   Ejercicio 1
 
@@ -26,6 +27,7 @@ function counter() {
 }
 
 function cacheFunction(cb) {
+  
   /*
   Ejercicio 2
 

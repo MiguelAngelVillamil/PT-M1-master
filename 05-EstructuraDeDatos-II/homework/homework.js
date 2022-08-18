@@ -44,20 +44,52 @@ class LinkedList {
   }
   
   remove(){
-    if (this.head){
-      this.last = this.current.next;
-
-      delete this.current.next
-
-      return this.last.value;
+    
+    if(!this.head){
+      return null;
     }
+    
+    if(!this.head.next){
+      this.current = this.head;
+      this.head = null;
+      return this.current.value;
+    }
+
+    this.current = this.head;
+    this.last = this.head.next;
+
+    while(this.last.next){
+      this.current = this.last;
+      this.last = this.last.next;
+    }
+   
+    this.current.next = null;
+    return this.last.value;
   }
 
-  search(){
+  search(elemento){
+    
+    if(!this.head) {
+      return null;
+    } 
 
+    this.current = this.head;
+
+    while(this.current){
+      if (this.current.value == elemento){
+        return this.current.value;
+      }
+      
+      if(typeof elemento == "function"){
+        if (elemento(this.current.value)){
+          return this.current.value;
+        }
+      }
+      this.current = this.current.next;
+    }
+    return null;
   }
 }
-
 
 /*
 Implementar la clase HashTable.
@@ -74,7 +106,13 @@ La clase debe tener los siguientes métodos:
 Ejemplo: supongamos que quiero guardar {instructora: 'Ani'} en la tabla. Primero puedo chequear, con hasKey, si ya hay algo en la tabla con el nombre 'instructora'; luego, invocando set('instructora', 'Ani'), se almacenará el par clave-valor en un bucket específico (determinado al hashear la clave)
 */
 
-function HashTable() {}
+class HashTable {
+  constructor(){
+    this.buckets = 35;
+  }
+
+
+}
 
 // No modifiquen nada debajo de esta linea
 // --------------------------------

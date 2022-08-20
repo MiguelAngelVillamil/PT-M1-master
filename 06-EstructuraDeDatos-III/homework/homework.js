@@ -16,6 +16,8 @@ class BinarySearchTree {
     this.value = value;
     this.left = null; 
     this.right = null;
+
+    // Para evitar la recursión inicializo un size con en 1 que reprecenta el root.
     this._size = 1;
   }
 
@@ -24,27 +26,27 @@ class BinarySearchTree {
   }
 
   insert(newValue){
-    // Incremento de tamaño.
+    // Incremento de tamaño del arbol.
     this._size++;
 
-    // Inserción a la izquierda.
-    if(newValue <= this.value){
+    // Inserción a la izquierda si nuestro elemento es menor al root.
+    if(newValue < this.value){
       // Si no hay nada el left.
       if(!this.left){
         // Ponemos el nuevo nodo ahí.
         this.left = new BinarySearchTree(newValue);
-        // Si hay algo seguimos bajando.
+      // Si hay algo nos paramos en el left y seguimos bajando.
       } else {
         this.left.insert(newValue);
       }
 
-    // Inserción a la derecha.
+    // Inserción a la derecha si nuestro elemento es mayor o igual al root.
     } else {
       // Si no hay nada el right.
       if(!this.right){
         // Ponemos el nuevo nodo ahí.
         this.right = new BinarySearchTree(newValue);
-        // Si hay algo seguimos bajando.
+      // Si hay algo nos paramos en el right y seguimos bajando.
       } else {
         this.right.insert(newValue);
       }
@@ -58,7 +60,7 @@ class BinarySearchTree {
       return true;
     }
     
-    //Si el valor que buscamos es menor al valor raíz.
+    // Si el valor que buscamos es menor al valor raíz.
     if(anyValue < this.value){
       
       // Si hay algo en el left seguimos buscando en el left la igualdad, si se cumple retornamos true.
@@ -66,15 +68,16 @@ class BinarySearchTree {
         return true;
       };
       
-    //Si el valor que buscamos es mayor al valor de la raíz.
+    // Si el valor que buscamos es mayor o igual al valor de la raíz.
     } else {
       
-      // Si hay algo en el right seguimos buscando en el left la igualdad, si se cumple retornamos true.
+      // Si hay algo en el right seguimos buscando en el right la igualdad, si se cumple retornamos true.
       if(this.right?.contains(anyValue)){
         return true;
       };
       
     }
+    // Si no se cumple la igualdad en ningún caso retornamos false.
     return false;
   }
   

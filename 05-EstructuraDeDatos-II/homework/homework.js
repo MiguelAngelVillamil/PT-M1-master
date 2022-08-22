@@ -109,17 +109,17 @@ Ejemplo: supongamos que quiero guardar {instructora: 'Ani'} en la tabla. Primero
 class HashTable {
   constructor(){
     this.numBuckets = 35;
-    this.table = []
-    this.table.length = this.numBuckets
+    this.table = [];
+    this.table.length = this.numBuckets;
   }
 
   hash(key){
-    let sum = 0
+    let sum = 0;
     for (const char of key) {
-      sum += char.charCodeAt()
+      sum += char.charCodeAt();
     }
 
-    return sum % this.numBuckets
+    return sum % this.numBuckets;
   }
 
   set(key, value){
@@ -132,7 +132,7 @@ class HashTable {
   }
 
   get(key){
-    return this.table[this.hash(key)][key]?.value
+    return this.table[this.hash(key)];
   }
 
   hasKey(key){

@@ -123,16 +123,22 @@ class HashTable {
   }
 
   set(key, value){
-    if(this.hasKey(key)){
-      this.table[this.hash(key)][key] = value
+    
+    if(typeof key != "string") {
+      throw new TypeError("Debe ingresar una string como parámetro"); 
     }
-    else {
-      this.table[this.hash(key)] = {[key]: value}
+    
+    let hashedKey = this.hash(key);
+
+    if(!this.table[hashedKey]) {
+      this.table[hashedKey] = {};
     }
+
+    this.table[hashedKey][key] = value;
   }
 
   get(key){
-    return this.table[this.hash(key)];
+    return this.table[this.hash(key)][key];
   }
 
   hasKey(key){

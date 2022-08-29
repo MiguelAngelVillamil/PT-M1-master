@@ -8,7 +8,7 @@ function quickSort(array) {
   // Tu código:
 
   // Si el array pasado por parámetro tiene 0 elementos retornamos el array vacío.
-  // Si el array tiene un elemento nos quedamos con ese elemento como corte.
+  // Si el array tiene un elemento nos quedamos con ese elemento como corte de la llamada recursiva.
   if(array.length < 2){
     return array;
   }
@@ -63,11 +63,6 @@ function mergeSort(array) {
   // Con nuestro elemento central ya podemos dividir nuestro array en dos partes iguales.
   let left = array.slice(0, middle);
   let right = array.slice(middle);
-
-  // Seguimos subdividiendo nuestro array hasta que nos quede sólo un elemento y los podamos ordenar como corresponde.
-  mergeSort(left);
-  mergeSort(right);
-
 
   // Para que el código no sea desastrozo vamos a crear una función aparte que ordene los array y pedirle todos los left y todos los right que tenemos.
   let merge = (left, right) => {
